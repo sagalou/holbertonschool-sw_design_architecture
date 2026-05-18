@@ -9,8 +9,8 @@ classDiagram
       +email:str
     }
     class Book{
-      +title:string
-      +author:string
+      +title:str
+      +author:str
       +state:bool
       +mark_as_unavailable()
       +mark_as_available()
@@ -20,3 +20,7 @@ classDiagram
         +end_date:str
         +close_loan()
     }
+    Library "1" *-- "1..*" Book
+    Library "1" *-- "0..*" User
+    Loan "1" -- "1" Book
+    Loan  "1" -- "1" User
