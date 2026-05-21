@@ -1,0 +1,12 @@
+sequenceDiagram
+
+    participant User
+    participant MusicPlatform
+    participant Song
+    participant ListeningHistory
+    participant Recommendation
+
+    User->>+MusicPlatform: play()
+    MusicPlatform->>+Song: get_song()
+    MusicPlatform->>+ListeninHistory: add_entry()
+    MusicPlatform->>+User: song playlist

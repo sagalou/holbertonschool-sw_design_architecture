@@ -1,0 +1,71 @@
+classDiagram
+    class User{
+        -id:int
+        +name:str
+        -age:int
+        -password:str
+        +play()
+        +pause()
+        +skip()
+        +like()
+        +create_playlist()
+        +add_to_playlist()
+    }
+    class MusicPlatform{
+        +id:int
+        +name:str
+        +search()
+        +generate_recommendation()
+    }
+    class Artist{
+        +id:int
+        +name:str
+        +profile_picture:str
+        +bio:str
+    }
+    class Album{
+        +id:int
+        +title:str
+        +duration:int
+        +nb_tracks:int
+        +release_date:str
+        +genre:str
+    }
+    class Song{
+        +id:int
+        +title:str
+        +duration:int
+        +genre:str
+        +lyrics:str
+    }
+    class Playlist{
+        +id:int
+        +name:str
+        +nb_tracks:int
+        +created_at:str
+        +add_song()
+        +remove_song()
+    }
+    class Recommendation{
+        +id:int
+        +genre:str
+        +created_at:str
+        +generate()
+    }
+    class ListeningHistory{
+        +id:int
+        +last_played:str
+        +total_listening_time:int
+        +add_entry()
+    }
+    Artist "1..*" -- "0..*" Album
+    Album "1" *-- "1..*" Song
+    User "1" *-- "0..*" Playlist
+    Playlist "0..*" -- "0..*" Song
+    User "1" *-- "1" ListeningHistory
+    ListeningHistory "0..*" -- "0..*" Song
+    User "1" *-- "0..*" Recommendation
+    Recommendation "1" -- "0..*" Song 
+    MusicPlatform "1" -- "0..*" User
+    MusicPlatform "1" -- "0..*" Artist
+    MusicPlatform "1" -- "0..*" Album

@@ -1,0 +1,9 @@
+sequenceDiagram
+
+    participant User
+    participant MusicPlatform
+
+    User->>+MusicPlatform: create_playlist()
+    create participant Playlist
+    MusicPlatform->>+Playlist: create_playlist()
+    MusicPlatform->>+User: playlist created

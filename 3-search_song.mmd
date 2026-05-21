@@ -1,0 +1,9 @@
+sequenceDiagram
+
+    participant User
+    participant MusicPlatform
+    participant Song
+
+    User->>+MusicPlatform: search()
+    MusicPlatform->>+Song: get_song()
+    MusicPlatform->>+User: song found
